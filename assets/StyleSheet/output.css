@@ -270,6 +270,9 @@
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
   }
+  .mt-95 {
+    margin-top: calc(var(--spacing) * 95);
+  }
   .mt-400 {
     margin-top: calc(var(--spacing) * 400);
   }
@@ -318,6 +321,12 @@
   .h-22 {
     height: calc(var(--spacing) * 22);
   }
+  .h-125 {
+    height: calc(var(--spacing) * 125);
+  }
+  .h-150 {
+    height: calc(var(--spacing) * 150);
+  }
   .h-\[500px\] {
     height: 500px;
   }
@@ -341,6 +350,15 @@
   }
   .w-22 {
     width: calc(var(--spacing) * 22);
+  }
+  .w-75 {
+    width: calc(var(--spacing) * 75);
+  }
+  .w-125 {
+    width: calc(var(--spacing) * 125);
+  }
+  .w-150 {
+    width: calc(var(--spacing) * 150);
   }
   .w-\[300px\] {
     width: 300px;
