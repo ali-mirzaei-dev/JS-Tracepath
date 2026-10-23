@@ -1,23 +1,37 @@
-const track = document.getElementById('track');
+const trackDesktop = document.getElementById('track');
 const marker = document.getElementById("marker");
 const progressValue = document.getElementById("progress-value");
 
-const total = track.getTotalLength();
-track.style.strokeDasharray = total;
-track.style.strokeDashoffset = total;
+const trackMobile = document.getElementById('track-mobile');
+const markerMobile = document.getElementById("marker-mobile");
+
+const totalDesktop = trackDesktop.getTotalLength();
+trackDesktop.style.strokeDasharray = totalDesktop;
+trackDesktop.style.strokeDashoffset = totalDesktop;
+
+const totalMobile = trackMobile.getTotalLength();
+trackMobile.style.strokeDasharray = totalMobile;
+trackMobile.style.strokeDashoffset = totalMobile;
 
 const fullHeight = document.documentElement.scrollHeight - innerHeight;
 
 addEventListener("scroll", () => {
-
-    // ------- Calculate the progress
     const progress = Math.min(scrollY / fullHeight, 1);
-    track.style.strokeDashoffset = total * (1 - progress);
 
-    // ------- calculate the position of the marker
-    const point = track.getPointAtLength(total * progress);
+    // ===== Desktop zigzag =====
+    trackDesktop.style.strokeDashoffset = totalDesktop * (1 - progress);
+    const point = trackDesktop.getPointAtLength(totalDesktop * progress);
     marker.setAttribute('cx', point.x);
     marker.setAttribute('cy', point.y);
 
-    progressValue.textContent = Math.round(progress * 100) + '%';
+    // ===== Mobile thin line =====
+    trackMobile.style.strokeDashoffset = totalMobile * (1 - progress);
+    const pointMobile = trackMobile.getPointAtLength(totalMobile * progress);
+    markerMobile.setAttribute('cx', pointMobile.x);
+    markerMobile.setAttribute('cy', pointMobile.y);
+
+    // Progress text
+    if (progressValue) {
+        progressValue.textContent = Math.round(progress * 100) + '%';
+    }
 });
