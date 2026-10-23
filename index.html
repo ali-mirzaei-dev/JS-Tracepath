@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/StyleSheet/output.css">
+
+
+</head>
+
+<body class="relative h-[1000vh]">
+
+    <svg viewBox="-10 -10 320 320" width="300" height="300" aria-hidden="true" class="fixed top-5 left-5">
+
+        <path
+            d="M 150 0 L 150 50 L 200 50 L 200 100 L 150 100 L 150 150 L 100 150 L 100 200 L 150 200 L 150 250 L 200 250 L 200 300 L 150 300"
+            fill="none"
+            stroke="#e5e7eb"
+            stroke-width="2"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+
+        <path
+            id="track"
+            d="M 150 0 L 150 50 L 200 50 L 200 100 L 150 100 L 150 150 L 100 150 L 100 200 L 150 200 L 150 250 L 200 250 L 200 300 L 150 300"
+            fill="none"
+            stroke="#8b5cf6"
+            stroke-width="3"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+
+        <circle id="marker" r="7" fill="#8b5cf6" cx="150" cy="0" />
+    </svg>
+
+</body>
+<script>
+
+
+    const track = document.getElementById('track')
+    const marker = document.getElementById("marker")
+
+    const total = track.getTotalLength()
+    track.style.strokeDasharray = total;
+    track.style.strokeDashoffset = total
+
+    const fullHeight = document.documentElement.scrollHeight - innerHeight;
+
+    addEventListener("scroll", () => {
+        const progress = scrollY / fullHeight;
+        track.style.strokeDashoffset = total * (1 - progress);
+
+        const point = track.getPointAtLength(total * progress);
+        marker.setAttribute('cx', point.x);
+        marker.setAttribute('cy', point.y);
+    });
+
+</script>
+
+</html>

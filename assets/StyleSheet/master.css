@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@keyframes pulse-ring {
+    0% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.pulse-ring {
+    animation: pulse-ring 1.4s ease-out infinite;
+}
+
+#marker {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 1.2s ease-in-out infinite;
+}
