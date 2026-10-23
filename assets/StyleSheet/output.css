@@ -240,8 +240,20 @@
   .-left-32 {
     left: calc(var(--spacing) * -32);
   }
+  .left-0 {
+    left: 0px;
+  }
+  .left-1 {
+    left: var(--spacing);
+  }
+  .left-1\/2 {
+    left: calc(1 / 2 * 100%);
+  }
   .left-5 {
     left: calc(var(--spacing) * 5);
+  }
+  .left-12 {
+    left: calc(var(--spacing) * 12);
   }
   .-z-10 {
     z-index: calc(10 * -1);
@@ -255,8 +267,32 @@
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+  .mt-400 {
+    margin-top: calc(var(--spacing) * 400);
+  }
+  .mt-\[380px\] {
+    margin-top: 380px;
+  }
+  .mt-\[400\] {
+    margin-top: 400;
+  }
+  .mt-\[400px\] {
+    margin-top: 400px;
+  }
+  .mt-\[450px\] {
+    margin-top: 450px;
+  }
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
   }
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
@@ -291,6 +327,9 @@
   .h-\[1000vh\] {
     height: 1000vh;
   }
+  .h-auto {
+    height: auto;
+  }
   .min-h-\[55vh\] {
     min-height: 55vh;
   }
@@ -318,6 +357,12 @@
   .max-w-2xl {
     max-width: var(--container-2xl);
   }
+  .max-w-\[260px\] {
+    max-width: 260px;
+  }
+  .max-w-\[300px\] {
+    max-width: 300px;
+  }
   .min-w-0 {
     min-width: 0px;
   }
@@ -332,6 +377,14 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -481,6 +534,9 @@
   }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
+  }
+  .pt-8 {
+    padding-top: calc(var(--spacing) * 8);
   }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
@@ -693,6 +749,38 @@
     }
   }
   @media (width >= 48rem) {
+    .md\:fixed {
+      position: fixed;
+    }
+    .md\:top-5 {
+      top: calc(var(--spacing) * 5);
+    }
+    .md\:right-5 {
+      right: calc(var(--spacing) * 5);
+    }
+    .md\:left-5 {
+      left: calc(var(--spacing) * 5);
+    }
+    .md\:mx-0 {
+      margin-inline: 0px;
+    }
+    .md\:mt-0 {
+      margin-top: 0px;
+    }
+    .md\:mb-0 {
+      margin-bottom: 0px;
+    }
+    .md\:w-\[300px\] {
+      width: 300px;
+    }
+    .md\:-translate-x-0 {
+      --tw-translate-x: 0px;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    .md\:translate-x-0 {
+      --tw-translate-x: 0px;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
     .md\:gap-12 {
       gap: calc(var(--spacing) * 12);
     }
@@ -701,6 +789,9 @@
     }
     .md\:px-8 {
       padding-inline: calc(var(--spacing) * 8);
+    }
+    .md\:pt-16 {
+      padding-top: calc(var(--spacing) * 16);
     }
     .md\:text-4xl {
       font-size: var(--text-4xl);
@@ -712,6 +803,19 @@
     }
     :is(.\*\:md\:p-10 > *) {
       padding: calc(var(--spacing) * 10);
+    }
+  }
+  @media (width >= 64rem) {
+    .lg\:fixed {
+      position: fixed;
+    }
+  }
+  @media (width >= 80rem) {
+    .xl\:fixed {
+      position: fixed;
+    }
+    .xl\:mt-0 {
+      margin-top: 0px;
     }
   }
 }
@@ -730,6 +834,21 @@
   transform-box: fill-box;
   transform-origin: center;
   animation: pulse 1.2s ease-in-out infinite;
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -959,6 +1078,9 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
       --tw-rotate-z: initial;
